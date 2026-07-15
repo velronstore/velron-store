@@ -134,6 +134,7 @@ VELRON STORE
 </div>
 
 <button onclick="sepeteEkle()">
+<button onclick="favoriyeEkle()">❤️ Favorilere Ekle</button>
 🛒 Sepete Ekle
 </button>
 
@@ -324,6 +325,29 @@ if(giris=="true" && hesap){
 document.getElementById("hesabim").innerHTML="👤 "+hesap.ad;
 
 document.getElementById("hesabim").href="#";
+
+}
+
+function favoriyeEkle(){
+
+const giris = localStorage.getItem("giris");
+
+if(giris!="true"){
+alert("Favorilere eklemek için önce giriş yapmalısınız.");
+window.location.href="giris.html";
+return;
+}
+
+let favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
+
+favoriler.push({
+urun:"Japon Ejderha Baskılı Siyah Tişört",
+fiyat:499
+});
+
+localStorage.setItem("favoriler",JSON.stringify(favoriler));
+
+alert("❤️ Ürün favorilere eklendi.");
 
 }
 
