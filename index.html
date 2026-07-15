@@ -142,6 +142,14 @@ VELRON STORE
 ⚡ Satın Al
 </button>
 
+<div id="sepetKutusu" style="display:none;background:#222;padding:20px;margin:30px;border-radius:15px;">
+<h2>🛒 Sepetim</h2>
+
+<div id="sepetListe"></div>
+
+<h3 id="toplamFiyat">Toplam: 0 TL</h3>
+</div>
+
 </section>
 <script>
 const fotograflar = [
@@ -203,31 +211,31 @@ document.getElementById("sepet").innerHTML = "🛒 (" + sepet.length + ")";
 
 function sepetiGoster() {
 
-  if (sepet.length === 0) {
-    alert("Sepetiniz boş.");
-    return;
-  }
+const kutu = document.getElementById("sepetKutusu");
+const liste = document.getElementById("sepetListe");
 
-  let yazi = "🛒 SEPETİNİZ\n\n";
+kutu.style.display = "block";
 
-  let toplam = 0;
+liste.innerHTML = "";
 
-  for (let i = 0; i < sepet.length; i++) {
+let toplam = 0;
 
-    yazi +=
-    sepet[i].urun +
-    "\nBeden: " +
-    sepet[i].beden +
-    "\n499 TL\n\n";
+for(let i = 0; i < sepet.length; i++){
 
-    toplam += sepet[i].fiyat;
+liste.innerHTML += `
+<div style="border:1px solid #555;padding:15px;margin:10px;border-radius:10px;">
+<b>${sepet[i].urun}</b><br>
+Beden: ${sepet[i].beden}<br>
+499 TL
+</div>
+`;
 
-  }
+toplam += sepet[i].fiyat;
 
-  yazi += "────────────\n";
-  yazi += "Toplam: " + toplam + " TL";
+}
 
-  alert(yazi);
+document.getElementById("toplamFiyat").innerHTML =
+"Toplam: " + toplam + " TL";
 
 }
 
