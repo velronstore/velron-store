@@ -308,6 +308,17 @@ sepetiGoster();
 
 }
 
+const hesap = JSON.parse(localStorage.getItem("hesap"));
+const giris = localStorage.getItem("giris");
+
+if(giris=="true" && hesap){
+
+document.getElementById("hesabim").innerHTML="👤 "+hesap.ad;
+
+document.getElementById("hesabim").href="#";
+
+}
+
 </script>
 
 
