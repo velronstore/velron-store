@@ -108,7 +108,12 @@ VELRON STORE
 
 <p>Premium Baskı • S • M • L • XL</p>
 
-<img src="tshirt.jpg">
+<img id="urun" src="tshirt.jpg" alt="Velron Tişört">
+
+<br><br>
+
+<button onclick="onceki()">◀</button>
+<button onclick="sonraki()">▶</button>
 
 <div class="fiyat">
 499 TL
@@ -119,6 +124,28 @@ Satın Al
 </button>
 
 </section>
+<script>
+const fotograflar = [
+"tshirt.jpg",
+"tshirt2.jpg",
+"tshirt3.jpg",
+"tshirt4.jpg"
+];
+
+let sira = 0;
+
+function sonraki() {
+  sira++;
+  if (sira >= fotograflar.length) sira = 0;
+  document.getElementById("urun").src = fotograflar[sira];
+}
+
+function onceki() {
+  sira--;
+  if (sira < 0) sira = fotograflar.length - 1;
+  document.getElementById("urun").src = fotograflar[sira];
+}
+</script>
 
 </body>
 </html>
