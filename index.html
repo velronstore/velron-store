@@ -190,6 +190,25 @@ function satinal() {
   alert("Seçilen beden: " + beden);
 }
 
+let sepet = [];
+
+function sepeteEkle() {
+  const beden = document.getElementById("beden").value;
+
+  if (beden === "") {
+    alert("Lütfen beden seçiniz.");
+    return;
+  }
+
+  sepet.push({
+    urun: "Japon Ejderhası Tişört",
+    fiyat: 499,
+    beden: beden
+  });
+
+  alert("Ürün sepete eklendi.\nSepetteki ürün sayısı: " + sepet.length);
+}
+
 </script>
 
 </body>
