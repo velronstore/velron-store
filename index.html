@@ -98,7 +98,7 @@ VELRON STORE
 <a href="#">Ana Sayfa</a>
 <a href="#">Ürünler</a>
 <a href="#">İletişim</a>
-<a href="#" id="sepet">🛒 (0)</a>
+<a href="#" id="sepet" onclick="sepetiGoster()">🛒 (0)</a>
 </nav>
 
 </header>
@@ -208,6 +208,36 @@ function sepeteEkle() {
   });
 
   alert("Ürün sepete eklendi.\nSepetteki ürün sayısı: " + sepet.length);
+}
+
+function sepetiGoster() {
+
+  if (sepet.length === 0) {
+    alert("Sepetiniz boş.");
+    return;
+  }
+
+  let yazi = "🛒 SEPETİNİZ\n\n";
+
+  let toplam = 0;
+
+  for (let i = 0; i < sepet.length; i++) {
+
+    yazi +=
+    sepet[i].urun +
+    "\nBeden: " +
+    sepet[i].beden +
+    "\n499 TL\n\n";
+
+    toplam += sepet[i].fiyat;
+
+  }
+
+  yazi += "────────────\n";
+  yazi += "Toplam: " + toplam + " TL";
+
+  alert(yazi);
+
 }
 
 </script>
