@@ -72,7 +72,7 @@ margin-top:20px;
 
 <h2>499 TL</h2>
 
-<button>🛒 Sepete Ekle</button>
+<button onclick="sepeteEkle()">🛒 Sepete Ekle</button>
 
 <script>
 
@@ -95,6 +95,29 @@ function onceki(){
 sira--;
 if(sira<0)sira=fotograflar.length-1;
 document.getElementById("urun").src=fotograflar[sira];
+}
+
+let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+
+function sepeteEkle(){
+
+const beden = document.getElementById("beden").value;
+
+if(beden==""){
+alert("Lütfen beden seçiniz.");
+return;
+}
+
+sepet.push({
+urun:"Dark Reaper Baskılı Siyah Tişört",
+fiyat:549,
+beden:beden
+});
+
+localStorage.setItem("sepet",JSON.stringify(sepet));
+
+alert("Ürün sepete eklendi.");
+
 }
 
 </script>
