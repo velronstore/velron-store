@@ -6,66 +6,119 @@
 <title>VELRON STORE</title>
 
 <style>
-body{
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial,sans-serif;
+}
+
+body{
 background:#111;
-color:#fff;
-text-align:center;
+color:white;
 }
 
 header{
 background:#000;
 padding:20px;
-font-size:32px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:28px;
 font-weight:bold;
 }
 
-.container{
-padding:20px;
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-size:16px;
 }
 
-img{
-width:300px;
+.hero{
+text-align:center;
+padding:40px 20px;
+}
+
+.hero h1{
+font-size:38px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#bbb;
+margin-bottom:25px;
+}
+
+.hero img{
+width:320px;
 max-width:90%;
-border-radius:15px;
+border-radius:18px;
+box-shadow:0 0 20px rgba(255,255,255,.1);
+}
+
+.fiyat{
+font-size:32px;
 margin-top:20px;
+font-weight:bold;
 }
 
 button{
-background:#fff;
-color:#000;
-padding:15px 30px;
-border:none;
-border-radius:10px;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
 margin-top:20px;
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:12px;
+background:white;
+cursor:pointer;
+font-weight:bold;
 }
+
+button:hover{
+background:#ddd;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<header>VELRON STORE</header>
+<header>
 
-<div class="container">
-
-<h2>Japon Ejderhası Tişört</h2>
-
-<p>499 TL</p>
-
-<p>Premium Baskı • S - M - L - XL</p>
-
-<img src="tshirt.jpg" alt="Velron Tişört">
-
-<br><br>
-
-<button>Satın Al</button>
-
+<div class="logo">
+VELRON STORE
 </div>
+
+<nav>
+<a href="#">Ana Sayfa</a>
+<a href="#">Ürünler</a>
+<a href="#">İletişim</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Japon Ejderhası Tişört</h1>
+
+<p>Premium Baskı • S • M • L • XL</p>
+
+<img src="tshirt.jpg">
+
+<div class="fiyat">
+499 TL
+</div>
+
+<button>
+Satın Al
+</button>
+
+</section>
 
 </body>
 </html>
