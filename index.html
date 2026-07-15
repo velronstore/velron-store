@@ -222,31 +222,34 @@ document.getElementById("sepet").innerHTML = "🛒 (" + sepet.length + ")";
 
 function sepetiGoster() {
 
-const kutu = document.getElementById("sepetKutusu");
-const liste = document.getElementById("sepetListe");
+  if (sepet.length === 0) {
+    alert("Sepetiniz boş.");
+    return;
+  }
 
-kutu.style.display = "block";
+  const kutu = document.getElementById("sepetKutusu");
+  const liste = document.getElementById("sepetListe");
 
-liste.innerHTML = "";
+  kutu.style.display = "block";
+  liste.innerHTML = "";
 
-let toplam = 0;
+  let toplam = 0;
 
-for(let i = 0; i < sepet.length; i++){
+  for (let i = 0; i < sepet.length; i++) {
 
-liste.innerHTML += `
-<div style="border:1px solid #555;padding:15px;margin:10px;border-radius:10px;">
-<b>${sepet[i].urun}</b><br>
-Beden: ${sepet[i].beden}<br>
-499 TL
-</div>
-`;
+    liste.innerHTML += `
+      <div style="border:1px solid #555;padding:15px;margin:10px;border-radius:10px;">
+        <b>${sepet[i].urun}</b><br>
+        Beden: ${sepet[i].beden}<br>
+        Fiyat: ${sepet[i].fiyat} TL
+      </div>
+    `;
 
-toplam += sepet[i].fiyat;
+    toplam += sepet[i].fiyat;
+  }
 
-}
-
-document.getElementById("toplamFiyat").innerHTML =
-"Toplam: " + toplam + " TL";
+  document.getElementById("toplamFiyat").innerHTML =
+  "Toplam: " + toplam + " TL";
 
 }
 
