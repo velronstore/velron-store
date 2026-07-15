@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giriş Yap</title>
 
+<style>
+body{
+background:#111;
+color:white;
+font-family:Arial,sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.kutu{
+background:#222;
+padding:30px;
+border-radius:15px;
+width:320px;
+text-align:center;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+box-sizing:border-box;
+}
+
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+background:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+a{
+color:#4da3ff;
+text-decoration:none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="kutu">
+
+<h2>Giriş Yap</h2>
+
+<input type="email" id="mail" placeholder="E-posta">
+
+<input type="password" id="sifre" placeholder="Şifre">
+
+<button onclick="girisYap()">Giriş Yap</button>
+
+<br><br>
+
+<a href="kayit.html">Hesabın yok mu? Kayıt Ol</a>
+
+</div>
+
+<script>
+
+function girisYap(){
+
+const hesap=JSON.parse(localStorage.getItem("hesap"));
+
+if(!hesap){
+alert("Önce hesap oluşturmalısınız.");
+return;
+}
+
+const mail=document.getElementById("mail").value;
+const sifre=document.getElementById("sifre").value;
+
+if(mail==hesap.mail && sifre==hesap.sifre){
+
+localStorage.setItem("giris","true");
+
+alert("Giriş başarılı.");
+
+window.location.href="index.html";
+
+}else{
+
+alert("E-posta veya şifre hatalı.");
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
