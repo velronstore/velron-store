@@ -98,6 +98,10 @@ ilce,
 adres
 }));
 
+const sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+localStorage.setItem("siparisler", JSON.stringify(sepet));
+localStorage.removeItem("sepet");
+
 alert("Siparişiniz alındı. Teşekkür ederiz!");
 
 window.location.href="index.html";
