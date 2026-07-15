@@ -182,19 +182,6 @@ z-index:999;
 
 </section>
 
-function urunSil(index){
-
-sepet.splice(index,1);
-
-localStorage.setItem("sepet", JSON.stringify(sepet));
-
-document.getElementById("sepet").innerHTML = "🛒 (" + sepet.length + ")";
-
-document.getElementById("sepetKutusu").style.display = "none";
-
-sepetiGoster();
-
-}
 
 <script>
 const fotograflar = [
@@ -297,6 +284,21 @@ Fiyat: ${sepet[i].fiyat} TL<br><br>
 
   document.getElementById("toplamFiyat").innerHTML =
     "Toplam: " + toplam + " TL";
+}
+
+function urunSil(index){
+
+sepet.splice(index,1);
+
+localStorage.setItem("sepet", JSON.stringify(sepet));
+
+document.getElementById("sepet").innerHTML =
+"🛒 (" + sepet.length + ")";
+
+document.getElementById("sepetKutusu").style.display = "none";
+
+sepetiGoster();
+
 }
 
 </script>
