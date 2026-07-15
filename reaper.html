@@ -103,6 +103,14 @@ let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
 
 function sepeteEkle(){
 
+const giris = localStorage.getItem("giris");
+
+if(giris!="true"){
+alert("Sepete ürün ekleyebilmek için önce giriş yapmalısınız.");
+window.location.href="giris.html";
+return;
+}
+
 const beden = document.getElementById("beden").value;
 
 if(beden==""){
