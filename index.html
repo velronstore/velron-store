@@ -201,7 +201,9 @@ function satinal() {
   alert("Seçilen beden: " + beden);
 }
 
-let sepet = [];
+let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+
+document.getElementById("sepet").innerHTML = "🛒 (" + sepet.length + ")";
 
 function sepeteEkle() {
   const beden = document.getElementById("beden").value;
@@ -216,6 +218,8 @@ function sepeteEkle() {
     fiyat: 499,
     beden: beden
   });
+
+localStorage.setItem("sepet", JSON.stringify(sepet));
 
 document.getElementById("sepet").innerHTML = "🛒 (" + sepet.length + ")";
 
