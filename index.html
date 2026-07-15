@@ -182,6 +182,17 @@ z-index:999;
 
 </section>
 
+function urunSil(index){
+
+sepet.splice(index,1);
+
+localStorage.setItem("sepet",JSON.stringify(sepet));
+
+document.getElementById("sepet").innerHTML="🛒 ("+sepet.length+")";
+
+sepetiGoster();
+
+}
 
 <script>
 const fotograflar = [
@@ -268,13 +279,16 @@ function sepetiGoster() {
 
   for (let i = 0; i < sepet.length; i++) {
 
-    liste.innerHTML += `
-      <div style="border:1px solid #555;padding:15px;margin:10px;border-radius:10px;">
-        <b>${sepet[i].urun}</b><br>
-        Beden: ${sepet[i].beden}<br>
-        Fiyat: ${sepet[i].fiyat} TL
-      </div>
-    `;
+liste.innerHTML += `
+<div style="border:1px solid #555;padding:15px;margin:10px;border-radius:10px;">
+<b>${sepet[i].urun}</b><br>
+Beden: ${sepet[i].beden}<br>
+Fiyat: ${sepet[i].fiyat} TL<br><br>
+
+<button onclick="urunSil(${i})">🗑️ Sil</button>
+
+</div>
+`;
 
     toplam += sepet[i].fiyat;
   }
