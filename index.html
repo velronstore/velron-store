@@ -142,7 +142,18 @@ VELRON STORE
 ⚡ Satın Al
 </button>
 
-<div id="sepetKutusu" style="display:none;background:#222;padding:20px;margin:30px;border-radius:15px;">
+<div id="sepetKutusu" style="
+display:none;
+position:fixed;
+top:80px;
+right:20px;
+width:300px;
+background:#222;
+padding:20px;
+border-radius:15px;
+box-shadow:0 0 15px rgba(0,0,0,.5);
+z-index:999;
+">
 <h2>🛒 Sepetim</h2>
 
 <div id="sepetListe"></div>
@@ -212,6 +223,15 @@ document.getElementById("sepet").innerHTML = "🛒 (" + sepet.length + ")";
 }
 
 function sepetiGoster() {
+
+const kutu = document.getElementById("sepetKutusu");
+
+if (kutu.style.display === "block") {
+    kutu.style.display = "none";
+    return;
+}
+
+kutu.style.display = "block";
 
   if (sepet.length === 0) {
     alert("Sepetiniz boş.");
