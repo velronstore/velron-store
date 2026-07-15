@@ -224,27 +224,24 @@ document.getElementById("sepet").innerHTML = "🛒 (" + sepet.length + ")";
 
 function sepetiGoster() {
 
-const kutu = document.getElementById("sepetKutusu");
-
-if (kutu.style.display === "block") {
-    kutu.style.display = "none";
-    return;
-}
-
-kutu.style.display = "block";
-
-  if (sepet.length === 0) {
-    alert("Sepetiniz boş.");
-    return;
-  }
-
   const kutu = document.getElementById("sepetKutusu");
   const liste = document.getElementById("sepetListe");
+
+  if (kutu.style.display === "block") {
+    kutu.style.display = "none";
+    return;
+  }
 
   kutu.style.display = "block";
   liste.innerHTML = "";
 
   let toplam = 0;
+
+  if (sepet.length === 0) {
+    liste.innerHTML = "<p>Sepetiniz boş.</p>";
+    document.getElementById("toplamFiyat").innerHTML = "Toplam: 0 TL";
+    return;
+  }
 
   for (let i = 0; i < sepet.length; i++) {
 
@@ -260,8 +257,7 @@ kutu.style.display = "block";
   }
 
   document.getElementById("toplamFiyat").innerHTML =
-  "Toplam: " + toplam + " TL";
-
+    "Toplam: " + toplam + " TL";
 }
 
 </script>
