@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hesap Oluştur</title>
 
+<style>
+body{
+background:#111;
+color:white;
+font-family:Arial,sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.kutu{
+background:#222;
+padding:30px;
+border-radius:15px;
+width:320px;
+text-align:center;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+box-sizing:border-box;
+}
+
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+background:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+a{
+color:#4da3ff;
+text-decoration:none;
+}
+</style>
+
+</head>
+<body>
+
+<div class="kutu">
+
+<h2>Hesap Oluştur</h2>
+
+<input type="text" id="ad" placeholder="Ad Soyad">
+
+<input type="email" id="mail" placeholder="E-posta">
+
+<input type="password" id="sifre" placeholder="Şifre">
+
+<input type="password" id="sifre2" placeholder="Şifre Tekrar">
+
+<button onclick="kayitOl()">Kayıt Ol</button>
+
+<br><br>
+
+<a href="giris.html">Zaten hesabın var mı? Giriş Yap</a>
+
+</div>
+
+<script>
+
+function kayitOl(){
+
+const ad=document.getElementById("ad").value.trim();
+const mail=document.getElementById("mail").value.trim();
+const sifre=document.getElementById("sifre").value;
+const sifre2=document.getElementById("sifre2").value;
+
+if(ad==""||mail==""||sifre==""||sifre2==""){
+alert("Lütfen tüm alanları doldurun.");
+return;
+}
+
+if(sifre.length<8){
+alert("Şifre en az 8 karakter olmalıdır.");
+return;
+}
+
+if(!/[a-zA-Z]/.test(sifre)){
+alert("Şifre en az 1 harf içermelidir.");
+return;
+}
+
+if(!/[0-9]/.test(sifre)){
+alert("Şifre en az 1 rakam içermelidir.");
+return;
+}
+
+if(sifre!=sifre2){
+alert("Şifreler aynı değil.");
+return;
+}
+
+localStorage.setItem("hesap",JSON.stringify({
+ad:ad,
+mail:mail,
+sifre:sifre
+}));
+
+alert("Hesap başarıyla oluşturuldu.");
+
+window.location.href="giris.html";
+
+}
+
+</script>
+
+</body>
+</html>
