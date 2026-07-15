@@ -216,15 +216,32 @@ function onceki() {
   if (sira < 0) sira = fotograflar.length - 1;
   document.getElementById("urun").src = fotograflar[sira];
 }
-function satinal() {
-  const beden = document.getElementById("beden").value;
+function satinal(){
 
-  if (beden === "") {
-    alert("Lütfen beden seçiniz.");
-    return;
-  }
+const giris = localStorage.getItem("giris");
 
-  alert("Seçilen beden: " + beden);
+if(giris!="true"){
+alert("Sipariş verebilmek için önce giriş yapmalısınız.");
+window.location.href="giris.html";
+return;
+}
+
+const beden = document.getElementById("beden").value;
+
+if(beden==""){
+alert("Lütfen beden seçiniz.");
+return;
+}
+
+const sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+
+if(sepet.length==0){
+alert("Lütfen önce ürünü sepete ekleyin.");
+return;
+}
+
+window.location.href="teslimat.html";
+
 }
 
 let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
