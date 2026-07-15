@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siparişlerim</title>
 
+<style>
+body{
+background:#111;
+color:white;
+font-family:Arial,sans-serif;
+margin:0;
+}
+
+header{
+background:#000;
+padding:20px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+}
+
+.kutu{
+max-width:500px;
+margin:30px auto;
+background:#222;
+padding:20px;
+border-radius:15px;
+}
+
+.siparis{
+border:1px solid #555;
+padding:15px;
+margin-top:15px;
+border-radius:10px;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:20px;
+border:none;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>VELRON STORE</header>
+
+<div class="kutu">
+
+<h2>📦 Siparişlerim</h2>
+
+<div id="liste"></div>
+
+<button onclick="window.location='index.html'">
+🏠 Ana Sayfa
+</button>
+
+</div>
+
+<script>
+
+const siparisler=JSON.parse(localStorage.getItem("siparisler"))||[];
+
+const liste=document.getElementById("liste");
+
+if(siparisler.length==0){
+
+liste.innerHTML="<p>Henüz siparişiniz bulunmuyor.</p>";
+
+}else{
+
+for(let i=0;i<siparisler.length;i++){
+
+liste.innerHTML+=`
+<div class="siparis">
+<b>${siparisler[i].urun}</b><br>
+Beden: ${siparisler[i].beden}<br>
+Fiyat: ${siparisler[i].fiyat} TL
+</div>
+`;
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
