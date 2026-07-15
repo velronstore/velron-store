@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hesabım</title>
 
+<style>
+body{
+background:#111;
+color:white;
+font-family:Arial,sans-serif;
+margin:0;
+}
+
+header{
+background:#000;
+padding:20px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+}
+
+.kutu{
+max-width:400px;
+margin:40px auto;
+background:#222;
+padding:25px;
+border-radius:15px;
+text-align:center;
+}
+
+h2{
+margin-bottom:20px;
+}
+
+p{
+font-size:18px;
+margin:15px 0;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>VELRON STORE</header>
+
+<div class="kutu">
+
+<h2>👤 Hesabım</h2>
+
+<p id="isim"></p>
+
+<p id="mail"></p>
+
+<button onclick="cikisYap()">🚪 Çıkış Yap</button>
+
+<button onclick="window.location='index.html'">🏠 Ana Sayfa</button>
+
+</div>
+
+<script>
+
+const hesap=JSON.parse(localStorage.getItem("hesap"));
+
+if(hesap){
+document.getElementById("isim").innerHTML="Ad Soyad: "+hesap.ad;
+document.getElementById("mail").innerHTML="E-posta: "+hesap.mail;
+}
+
+function cikisYap(){
+
+localStorage.removeItem("giris");
+
+alert("Çıkış yapıldı.");
+
+window.location="giris.html";
+
+}
+
+</script>
+
+</body>
+</html>
