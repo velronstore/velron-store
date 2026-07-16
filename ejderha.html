@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELRON STORE - Japon Ejderhası</title>
 
+<style>
+body{
+margin:0;
+background:#111;
+color:white;
+font-family:Arial,sans-serif;
+text-align:center;
+}
+
+header{
+background:#000;
+padding:20px;
+font-size:30px;
+font-weight:bold;
+}
+
+img{
+width:320px;
+max-width:90%;
+border-radius:15px;
+margin-top:20px;
+}
+
+button{
+padding:15px 30px;
+margin:10px;
+border:none;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+select{
+padding:10px;
+font-size:18px;
+margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>VELRON STORE</header>
+
+<h1>Japon Ejderhası Baskılı Siyah Tişört</h1>
+
+<img id="urun" src="tshirt.jpg">
+
+<br>
+
+<select id="beden">
+<option value="">Beden Seçiniz</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+</select>
+
+<br>
+
+<button onclick="onceki()">◀</button>
+<button onclick="sonraki()">▶</button>
+
+<h2>499 TL</h2>
+
+<button onclick="favoriyeEkle()">❤️ Favorilere Ekle</button>
+
+<button onclick="sepeteEkle()">🛒 Sepete Ekle</button>
+
+<script>
+
+const fotograflar=[
+"tshirt.jpg",
+"tshirt2.jpg",
+"tshirt3.jpg",
+"tshirt4.jpg"
+];
+
+let sira=0;
+
+function sonraki(){
+sira++;
+if(sira>=fotograflar.length)sira=0;
+document.getElementById("urun").src=fotograflar[sira];
+}
+
+function onceki(){
+sira--;
+if(sira<0)sira=fotograflar.length-1;
+document.getElementById("urun").src=fotograflar[sira];
+}
+
+function sepeteEkle(){
+
+const giris=localStorage.getItem("g
