@@ -167,6 +167,8 @@ fiyat:549
 
 localStorage.setItem("favoriler",JSON.stringify(favoriler));
 
+document.getElementById("kalp").innerHTML = "❤️";
+
 alert("❤️ Ürün favorilere eklendi.");
 
 }
@@ -191,6 +193,18 @@ return;
 sepeteEkle();
 
 window.location.href="teslimat.html";
+
+}
+
+let favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
+
+for(let i=0; i<favoriler.length; i++){
+
+if(favoriler[i].urun=="Dark Reaper Baskılı Siyah Tişört"){
+
+document.getElementById("kalp").innerHTML="❤️";
+
+}
 
 }
 
