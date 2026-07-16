@@ -94,6 +94,18 @@ padding:6px;
 
 <button onclick="satinal()">⚡ Satın Al</button>
 
+window.onload = function(){
+
+let favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
+
+let varMi = favoriler.find(u => u.urun == "Dark Reaper Baskılı Siyah Tişört");
+
+if(varMi){
+document.getElementById("kalp").innerHTML = "❤️";
+}
+
+}
+
 <script>
 
 const fotograflar=[
@@ -160,6 +172,13 @@ return;
 
 let favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
 
+let varMi = favoriler.find(u => u.urun == "Dark Reaper Baskılı Siyah Tişört");
+
+if(varMi){
+document.getElementById("kalp").innerHTML="❤️";
+return;
+}
+
 favoriler.push({
 urun:"Dark Reaper Baskılı Siyah Tişört",
 fiyat:549
@@ -167,10 +186,9 @@ fiyat:549
 
 localStorage.setItem("favoriler",JSON.stringify(favoriler));
 
-document.getElementById("kalp").innerHTML = "❤️";
+document.getElementById("kalp").innerHTML="❤️";
 
 alert("❤️ Ürün favorilere eklendi.");
-
 }
 
 function satinal(){
