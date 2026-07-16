@@ -166,7 +166,6 @@ beden:beden
 
 localStorage.setItem("sepet",JSON.stringify(sepet));
 
-document.getElementById("kalp").textContent = "❤️";
 
 alert("✅️ Ürün sepete eklendi.");
 }
@@ -189,6 +188,8 @@ fiyat:499
 });
 
 localStorage.setItem("favoriler",JSON.stringify(favoriler));
+
+document.getElementById("kalp").innerHTML = "❤️";
 
 alert("❤️ Ürün favorilere eklendi.");
 }
