@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>VELRON STORE</title>
 
 <style>
@@ -16,7 +17,7 @@ font-family:Arial,sans-serif;
 
 body{
 background:#111;
-color:white;
+color:#fff;
 }
 
 header{
@@ -25,10 +26,10 @@ top:0;
 background:#000;
 height:60px;
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
 padding:0 18px;
-z-index:1000;
+z-index:999;
 }
 
 .logo{
@@ -39,7 +40,7 @@ letter-spacing:3px;
 
 .icon{
 font-size:22px;
-color:white;
+color:#fff;
 text-decoration:none;
 cursor:pointer;
 }
@@ -52,14 +53,10 @@ font-size:13px;
 font-weight:bold;
 border-bottom:1px solid #333;
 }
-
 .banner{
-height:220px;
-background:url("banner.jpg") center/cover;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
+width:100%;
+height:230px;
+background:url("banner.jpg") center/cover no-repeat;
 }
 
 .baslik{
@@ -74,8 +71,9 @@ font-size:22px;
 }
 
 .baslik a{
-color:white;
+color:#fff;
 text-decoration:none;
+font-size:14px;
 }
 
 .urunler{
@@ -83,14 +81,13 @@ display:grid;
 grid-template-columns:repeat(2,160px);
 justify-content:center;
 gap:18px;
-padding-bottom:30px;
+padding:20px;
 }
 
 .kart{
-background:#1a1a1a;
+background:#1b1b1b;
 border-radius:18px;
 padding:15px;
-text-align:center;
 cursor:pointer;
 transition:.2s;
 }
@@ -98,7 +95,6 @@ transition:.2s;
 .kart:hover{
 transform:scale(1.03);
 }
-
 .kart img{
 width:100%;
 border-radius:15px;
@@ -108,12 +104,14 @@ display:block;
 .kart h3{
 margin-top:12px;
 font-size:18px;
+text-align:center;
 }
 
 .kart p{
 margin-top:8px;
 font-size:18px;
 font-weight:bold;
+text-align:center;
 }
 
 footer{
@@ -124,17 +122,51 @@ color:#aaa;
 margin-top:30px;
 }
 
-</style>
+#menu{
+position:fixed;
+top:0;
+left:-220px;
+width:220px;
+height:100%;
+background:#1a1a1a;
+padding:20px;
+transition:.3s;
+z-index:999;
+}
 
+#overlay{
+display:none;
+position:fixed;
+top:0;
+left:220px;
+width:calc(100% - 220px);
+height:100%;
+background:rgba(0,0,0,.4);
+backdrop-filter:blur(8px);
+z-index:998;
+}
+</style>
 </head>
 
 <body>
 
 <header>
 
-<div class="logo">VELRON</div>
+<button onclick="menuAc()" style="
+background:none;
+border:none;
+color:white;
+font-size:22px;
+cursor:pointer;
+">
+☰
+</button>
 
-<a href="#" class="icon">🛒</a>
+<div class="logo">
+VELRON
+</div>
+
+<a href="sepet.html" class="icon">🛒</a>
 
 </header>
 
@@ -150,58 +182,67 @@ margin-top:30px;
 </div>
 
 <div class="urunler">
-
 <div class="kart" onclick="location.href='ejderha.html'">
 <img src="tshirt.jpg">
-<h3>JAPON EJDERHASI</h3>
+<h3>Japon Ejderhası</h3>
 <p>499 TL</p>
 </div>
 
 <div class="kart" onclick="location.href='reaper.html'">
 <img src="tişört5.jpg">
-<h3>DARK REAPER</h3>
+<h3>Dark Reaper</h3>
 <p>549 TL</p>
 </div>
 
 <div class="kart">
 <img src="tshirt2.jpg">
-<h3>YAKINDA</h3>
+<h3>Yakında</h3>
 <p>499 TL</p>
 </div>
 
 <div class="kart">
 <img src="tshirt3.jpg">
-<h3>YAKINDA</h3>
+<h3>Yakında</h3>
 <p>499 TL</p>
 </div>
 
 </div>
 
 <div class="baslik">
-<h2>Neden
+<h2>Neden Velron?</h2>
+</div>
 
 <div style="padding:25px;text-align:center;line-height:35px;font-size:17px;">
-
 🚚 Hızlı Kargo<br>
 ⭐ Premium Kalite<br>
 🔒 Güvenli Alışveriş<br>
 📦 Özenli Paketleme
-
 </div>
-
 <footer>
-
 <h2>VELRON STORE</h2>
-
 <p style="margin-top:10px;">
-Kaliteli baskı • Güvenli alışveriş • Hızlı kargo
+Premium Kalite • Güvenli Alışveriş • Hızlı Kargo
 </p>
-
 <p style="margin-top:20px;color:#777;">
 © 2026 VELRON STORE
 </p>
-
 </footer>
+
+<div id="overlay" onclick="menuKapat()"></div>
+
+<div id="menu">
+
+<h2 style="margin-bottom:25px;">VELRON STORE</h2>
+
+<p><a href="hesabim.html" style="color:white;text-decoration:none;">👤 Hesabım</a></p><br>
+
+<p><a href="favoriler.html" style="color:white;text-decoration:none;">❤️ Favoriler</a></p><br>
+
+<p><a href="sepet.html" style="color:white;text-decoration:none;">🛒 Sepet</a></p><br>
+
+<p><a href="#" style="color:white;text-decoration:none;">📞 İletişim</a></p>
+
+</div>
 
 <script>
 
@@ -217,31 +258,5 @@ document.getElementById("overlay").style.display="none";
 
 </script>
 
-<div id="overlay" onclick="menuKapat()" style="
-display:none;
-position:fixed;
-top:0;
-left:220px;
-width:calc(100% - 220px);
-height:100%;
-background:rgba(0,0,0,.35);
-backdrop-filter:blur(8px);
-z-index:998;
-"></div>
-
-<div id="menu" style="
-position:fixed;
-top:0;
-left:-220px;
-width:220px;
-height:100%;
-background:#1a1a1a;
-padding:20px;
-transition:.3s;
-z-index:999;
-">
-
-<h2 style="margin-bottom:25px;">VELRON STORE</h2>
-
-<p style="margin:20px 0;">
-<a href="hesabim.html" style="color:white;text-decoration:none;">👤 Hesabım
+</body>
+</html>
