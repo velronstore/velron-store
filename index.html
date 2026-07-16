@@ -94,13 +94,23 @@ background:#ddd;
 VELRON STORE
 </div>
 
-<nav>
-<a href="#">Ana Sayfa</a>
-<a href="#">Ürünler</a>
-<a href="#">İletişim</a>
-<a href="hesabim.html" id="hesabim">👤 Hesabım</a>
-<a href="#" id="sepet" onclick="sepetiGoster()">🛒 (0)</a>
-</nav>
+<div style="display:flex;align-items:center;gap:15px;">
+
+<button onclick="menuAc()" style="
+background:none;
+color:white;
+font-size:28px;
+padding:0;
+border:none;
+">
+☰
+</button>
+
+<a href="#" id="sepet" onclick="sepetiGoster()" style="color:white;text-decoration:none;">
+🛒 (0)
+</a>
+
+</div>
 
 </header>
 
@@ -306,8 +316,36 @@ alert("❤️ Ürün favorilere eklendi.");
 
 }
 
+function menuAc(){
+document.getElementById("menu").style.display="block";
+}
+
+function menuKapat(){
+document.getElementById("menu").style.display="none";
+}
+
 </script>
 
+<div id="menu" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:260px;
+height:100%;
+background:#1a1a1a;
+padding:20px;
+">
+
+<h2>VELRON STORE</h2>
+
+<p><a href="hesabim.html" style="color:white;text-decoration:none;">👤 Hesabım</a></p>
+
+<p><a href="#" style="color:white;text-decoration:none;">📞 İletişim</a></p>
+
+<p><a href="#" onclick="menuKapat()" style="color:red;text-decoration:none;">✖ Kapat</a></p>
+
+</div>
 
 </body>
 </html>
