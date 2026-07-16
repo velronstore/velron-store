@@ -7,8 +7,6 @@
 
 <style>
 
-
-
 *{
 margin:0;
 padding:0;
@@ -22,403 +20,167 @@ color:white;
 }
 
 header{
+position:sticky;
+top:0;
 background:#000;
-padding:0px 5px;
+height:60px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-position:relative;
+padding:0 18px;
+z-index:1000;
 }
 
 .logo{
-font-size:28px;
+font-size:22px;
 font-weight:bold;
+letter-spacing:3px;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-size:16px;
-}
-
-.hero{
-text-align:center;
-padding:40px 20px;
-}
-
-.hero h1{
-font-size:38px;
-margin-bottom:10px;
-}
-
-.hero p{
-color:#bbb;
-margin-bottom:25px;
-}
-
-.hero img{
-width:320px;
-max-width:90%;
-border-radius:18px;
-box-shadow:0 0 20px rgba(255,255,255,.1);
-}
-
-.fiyat{
-font-size:32px;
-margin-top:20px;
-font-weight:bold;
-}
-
-button{
-margin-top:20px;
-padding:10px 22px;
-font-size:15px;
-border:none;
-border-radius:12px;
-background:white;
+.icon{
+font-size:22px;
 cursor:pointer;
-font-weight:bold;
-}
-
-button:hover{
-background:#ddd;
-}
-
-.banner{
-    width:100%;
-    margin-top:10px;
-    overflow:hidden;
-}
-
-.banner img{
-    width:100%;
-    display:block;
-    transform: scale(1.20) translateY(20px);
+text-decoration:none;
+color:white;
 }
 
 .kargo{
-background:#111;
-color:white;
+background:#1b1b1b;
+padding:10px;
 text-align:center;
-padding:8px;
 font-size:13px;
 font-weight:bold;
-border-top:1px solid #333;
 border-bottom:1px solid #333;
-letter-spacing:1px;
 }
 
-div[onclick]:active{
-    transform:scale(0.97);
-}
+.banner{
 
-</style>
-
-</head>
-
-<body>
-
-<header>
-
-<button onclick="menuAc()" style="
-background:none;
-border:none;
-color:white;
-font-size:18px;
-cursor:pointer;
-margin-left:-15px;
-margin-top:-4px;
-">
-☰
-</button>
-
-<div style="
-position:absolute;
-left:50%;
-transform:translateX(-55%);
-font-size:20px;
-font-weight:bold;
-letter-spacing:2px;
-">
-VELRON
-</div>
-
-<a href="#" id="sepet" onclick="sepetiGoster()"
-style="color:white;text-decoration:none;font-size:18px;">
-🛒
-</a>
-
-</header>
-
-<div class="kargo">
-🚚 2 TİŞÖRT ALANA KARGO BEDAVA
-</div>
-
-<div class="banner">
-<img src="banner.jpg">
-</div>
-
-<div style="
-display:grid;
-grid-template-columns:repeat(2,130px);
+height:220px;
+background:url("banner.jpg") center/cover;
+display:flex;
 justify-content:center;
-gap:15px;
-margin:40px 0;
-">
-
-<div onclick="location.href='ejderha.html'" style="
-width:130px;
-background:#1b1b1b;
-border-radius:15px;
-padding:15px;
+align-items:center;
 text-align:center;
+padding:20px;
+
+}
+
+.banner h1{
+
+font-size:38px;
+margin-bottom:10px;
+
+}
+
+.banner p{
+
+color:#ddd;
+
+}
+
+.banner button{
+
+margin-top:20px;
+padding:12px 30px;
+border:none;
+border-radius:12px;
+font-size:16px;
+font-weight:bold;
 cursor:pointer;
-transition:0.2s;
-">
-<img src="tshirt.jpg" style="width:115px;height:155px;object-fit:cover;border-radius:14px;box-shadow:0 5px 15px rgba(0,0,0,.4);">
+
+}
+
+.baslik{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 18px 10px;
+
+}
+
+.baslik h2{
+
+font-size:22px;
+
+}
+
+.baslik a{
+
+color:white;
+text-decoration:none;
+
+}
+
+.urunler{
+
+display:grid;
+grid-template-columns:repeat(2,160px);
+justify-content:center;
+gap:18px;
+padding-bottom:30px;
+
+}
+
+.kart{
+
+background:#1a1a1a;
+border-radius:18
+
+<div class="baslik">
+<h2>Yeni Koleksiyon</h2>
+<a href="#">Tümünü Gör →</a>
+</div>
+
+<div class="urunler">
+
+<div class="kart" onclick="location.href='ejderha.html'">
+<img src="tshirt.jpg">
+<h3>Japon Ejderhası</h3>
 <p>499 TL</p>
 </div>
 
-<div onclick="location.href='reaper.html'" style="
-width:130px;
-background:#1b1b1b;
-border-radius:15px;
-padding:15px;
-text-align:center;
-cursor:pointer;
-transition:0.2s;
-">
-<img src="tişört5.jpg" style="width:115px;height:155px;object-fit:cover;border-radius:14px;box-shadow:0 5px 15px rgba(0,0,0,.4);">
+<div class="kart" onclick="location.href='reaper.html'">
+<img src="tişört5.jpg">
+<h3>Dark Reaper</h3>
 <p>549 TL</p>
 </div>
 
+<div class="kart">
+<img src="tshirt2.jpg">
+<h3>Yakında</h3>
+<p>499 TL</p>
 </div>
 
-
-<script>
-const fotograflar = [
-"tshirt.jpg",
-"tshirt2.jpg",
-"tshirt3.jpg",
-"tshirt4.jpg"
-];
-
-fotograflar.forEach(function(resim) {
-  const img = new Image();
-  img.src = resim;
-});
-
-let sira = 0;
-
-function sonraki() {
-  sira++;
-  if (sira >= fotograflar.length) sira = 0;
-  document.getElementById("urun").src = fotograflar[sira];
-}
-
-function onceki() {
-  sira--;
-  if (sira < 0) sira = fotograflar.length - 1;
-  document.getElementById("urun").src = fotograflar[sira];
-}
-function satinal(){
-
-const giris = localStorage.getItem("giris");
-
-if(giris!="true"){
-alert("Sipariş verebilmek için önce giriş yapmalısınız.");
-window.location.href="giris.html";
-return;
-}
-
-const beden = document.getElementById("beden").value;
-
-if(beden==""){
-alert("Lütfen beden seçiniz.");
-return;
-}
-
-const sepet = JSON.parse(localStorage.getItem("sepet")) || [];
-
-if(sepet.length==0){
-alert("Lütfen önce ürünü sepete ekleyin.");
-return;
-}
-
-window.location.href="teslimat.html";
-
-}
-
-let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
-
-document.getElementById("sepet").innerHTML = "🛒 (" + sepet.length + ")";
-
-function sepeteEkle() {
-
-const giris = localStorage.getItem("giris");
-
-if(giris != "true"){
-alert("Sepete ürün ekleyebilmek için önce giriş yapmalısınız.");
-window.location.href = "giris.html";
-return;
-}
-  const beden = document.getElementById("beden").value;
-
-  if (beden === "") {
-    alert("Lütfen beden seçiniz.");
-    return;
-  }
-
-  sepet.push({
-    urun: "Japon Ejderhası Tişört",
-    fiyat: 499,
-    beden: beden
-  });
-
-localStorage.setItem("sepet", JSON.stringify(sepet));
-
-document.getElementById("sepet").innerHTML = "🛒 (" + sepet.length + ")";
-
-  alert("Ürün sepete eklendi.\nSepetteki ürün sayısı: " + sepet.length);
-}
-
-function sepetiGoster() {
-
-  const kutu = document.getElementById("sepetKutusu");
-  const liste = document.getElementById("sepetListe");
-
-  if (kutu.style.display === "block") {
-    kutu.style.display = "none";
-    return;
-  }
-
-  kutu.style.display = "block";
-  liste.innerHTML = "";
-
-  let toplam = 0;
-
-  if (sepet.length === 0) {
-    liste.innerHTML = "<p>Sepetiniz boş.</p>";
-    document.getElementById("toplamFiyat").innerHTML = "Toplam: 0 TL";
-    return;
-  }
-
-  for (let i = 0; i < sepet.length; i++) {
-
-liste.innerHTML += `
-<div style="border:1px solid #555;padding:15px;margin:10px;border-radius:10px;">
-<b>${sepet[i].urun}</b><br>
-Beden: ${sepet[i].beden}<br>
-Fiyat: ${sepet[i].fiyat} TL<br><br>
-
-<button onclick="urunSil(${i})">🗑️ Sil</button>
+<div class="kart">
+<img src="tshirt3.jpg">
+<h3>Yakında</h3>
+<p>499 TL</p>
+</div>
 
 </div>
-`;
 
-    toplam += sepet[i].fiyat;
-  }
+<div class="baslik">
+<h2>Neden Velron?</h2>
+</div>
 
-  document.getElementById("toplamFiyat").innerHTML =
-    "Toplam: " + toplam + " TL";
-}
+<div style="padding:20px;text-align:center;line-height:35px;font-size:17px;">
 
-function urunSil(index){
-
-sepet.splice(index,1);
-
-localStorage.setItem("sepet", JSON.stringify(sepet));
-
-document.getElementById("sepet").innerHTML =
-"🛒 (" + sepet.length + ")";
-
-document.getElementById("sepetKutusu").style.display = "none";
-
-sepetiGoster();
-
-}
-
-const hesap = JSON.parse(localStorage.getItem("hesap"));
-const giris = localStorage.getItem("giris");
-
-if(giris=="true" && hesap){
-
-document.getElementById("hesabim").innerHTML="👤 "+hesap.ad;
-
-document.getElementById("hesabim").href="#";
-
-}
-
-function favoriyeEkle(){
-
-const giris = localStorage.getItem("giris");
-
-if(giris!="true"){
-alert("Favorilere eklemek için önce giriş yapmalısınız.");
-window.location.href="giris.html";
-return;
-}
-
-let favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
-
-favoriler.push({
-urun:"Japon Ejderha Baskılı Siyah Tişört",
-fiyat:499
-});
-
-localStorage.setItem("favoriler",JSON.stringify(favoriler));
-
-alert("❤️ Ürün favorilere eklendi.");
-
-}
-
-function menuAc(){
-document.getElementById("menu").style.left="0";
-document.getElementById("overlay").style.display="block";
-}
-
-function menuKapat(){
-document.getElementById("menu").style.left="-200px";
-document.getElementById("overlay").style.display="none";
-}
-
-</script>
-
-<div id="overlay" onclick="menuKapat()" style="
-display:none;
-position:fixed;
-top:0;
-left:200px;
-width:calc(100% - 200px);
-height:100%;
-background:rgba(0,0,0,0.35);
-backdrop-filter:blur(8px);
--webkit-backdrop-filter:blur(8px);
-z-index:998;
-"></div>
-
-<div id="menu" style="
-position:fixed;
-top:0;
-left:-200px;
-width:200px;
-height:100%;
-background:#1a1a1a;
-padding:20px;
-transition:0.3s;
-z-index:999;
-">
-
-<h2>VELRON STORE</h2>
-
-<p><a href="hesabim.html" style="color:white;text-decoration:none;">👤 Hesabım</a></p>
-
-<p><a href="#" style="color:white;text-decoration:none;">📞 İletişim</a></p>
-
-
+🚚 Hızlı Kargo<br>
+⭐ Premium Kalite<br>
+🔒 Güvenli Alışveriş<br>
+📦 Özenli Paketleme
 
 </div>
+
+<footer>
+
+<b>VELRON STORE</b><br><br>
+
+© 2026 Tüm Hakları Saklıdır.
+
+</footer>
 
 </body>
 </html>
+
