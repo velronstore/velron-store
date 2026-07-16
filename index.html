@@ -88,29 +88,39 @@ background:#ddd;
 
 <body>
 
-<header>
-
-<div class="logo">
-VELRON STORE
-</div>
-
-<div style="display:flex;align-items:center;gap:15px;">
+<header style="
+background:#000;
+padding:18px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+">
 
 <button onclick="menuAc()" style="
 background:none;
+border:none;
 color:white;
 font-size:28px;
-padding:0;
-border:none;
+cursor:pointer;
 ">
 ☰
 </button>
 
-<a href="#" id="sepet" onclick="sepetiGoster()" style="color:white;text-decoration:none;">
-🛒 (0)
-</a>
-
+<div style="
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+font-size:28px;
+font-weight:bold;
+letter-spacing:2px;
+">
+VELRON
 </div>
+
+<a href="#" id="sepet" onclick="sepetiGoster()"
+style="color:white;text-decoration:none;font-size:22px;">
+🛒
+</a>
 
 </header>
 
