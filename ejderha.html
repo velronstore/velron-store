@@ -6,44 +6,66 @@
 <title>VELRON STORE - Japon Ejderhası</title>
 
 <style>
-body{
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
 background:#111;
 color:white;
-font-family:Arial,sans-serif;
 text-align:center;
 }
 
 header{
 background:#000;
 padding:20px;
-font-size:30px;
+font-size:28px;
 font-weight:bold;
 }
 
-img{
+#urun{
 width:320px;
 max-width:90%;
 border-radius:15px;
+margin-top:25px;
+box-shadow:0 0 20px rgba(255,255,255,.08);
+}
+
+h1{
 margin-top:20px;
+font-size:30px;
+}
+
+select{
+margin-top:20px;
+padding:12px;
+font-size:18px;
+border-radius:10px;
+border:none;
 }
 
 button{
-padding:15px 30px;
+padding:14px 28px;
 margin:10px;
 border:none;
 border-radius:10px;
-font-size:18px;
+font-size:17px;
 font-weight:bold;
 cursor:pointer;
 }
 
-select{
-padding:10px;
-font-size:18px;
+.fiyat{
+font-size:32px;
 margin-top:20px;
+font-weight:bold;
 }
+
 </style>
+
 </head>
 
 <body>
@@ -69,11 +91,13 @@ margin-top:20px;
 <button onclick="onceki()">◀</button>
 <button onclick="sonraki()">▶</button>
 
-<h2>499 TL</h2>
+<div class="fiyat">499 TL</div>
 
 <button onclick="favoriyeEkle()">❤️ Favorilere Ekle</button>
 
 <button onclick="sepeteEkle()">🛒 Sepete Ekle</button>
+
+<button onclick="satinal()">⚡ Satın Al</button>
 
 <script>
 
@@ -100,4 +124,79 @@ document.getElementById("urun").src=fotograflar[sira];
 
 function sepeteEkle(){
 
-const giris=localStorage.getItem("g
+const giris=localStorage.getItem("giris");
+
+if(giris!="true"){
+alert("Sepete ürün ekleyebilmek için önce giriş yapmalısınız.");
+window.location.href="giris.html";
+return;
+}
+
+const beden=document.getElementById("beden").value;
+
+if(beden==""){
+alert("Lütfen beden seçiniz.");
+return;
+}
+
+let sepet=JSON.parse(localStorage.getItem("sepet")) || [];
+
+sepet.push({
+urun:"Japon Ejderhası Baskılı Siyah Tişört",
+fiyat:499,
+beden:beden
+});
+
+localStorage.setItem("sepet",JSON.stringify(sepet));
+
+alert("✅ Ürün sepete eklendi.");
+}
+
+function favoriyeEkle(){
+
+const giris=localStorage.getItem("giris");
+
+if(giris!="true"){
+alert("Favorilere eklemek için önce giriş yapmalısınız.");
+window.location.href="giris.html";
+return;
+}
+
+let favoriler=JSON.parse(localStorage.getItem("favoriler")) || [];
+
+favoriler.push({
+urun:"Japon Ejderhası Baskılı Siyah Tişört",
+fiyat:499
+});
+
+localStorage.setItem("favoriler",JSON.stringify(favoriler));
+
+alert("❤️ Ürün favorilere eklendi.");
+}
+
+function satinal(){
+
+const giris=localStorage.getItem("giris");
+
+if(giris!="true"){
+alert("Sipariş verebilmek için önce giriş yapmalısınız.");
+window.location.href="giris.html";
+return;
+}
+
+const beden=document.getElementById("beden").value;
+
+if(beden==""){
+alert("Lütfen beden seçiniz.");
+return;
+}
+
+sepeteEkle();
+
+window.location.href="teslimat.html";
+}
+
+</script>
+
+</body>
+</html>
