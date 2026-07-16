@@ -39,9 +39,9 @@ letter-spacing:3px;
 
 .icon{
 font-size:22px;
-cursor:pointer;
-text-decoration:none;
 color:white;
+text-decoration:none;
+cursor:pointer;
 }
 
 .kargo{
@@ -54,72 +54,36 @@ border-bottom:1px solid #333;
 }
 
 .banner{
-
 height:220px;
 background:url("banner.jpg") center/cover;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
-
-}
-
-.banner h1{
-
-font-size:38px;
-margin-bottom:10px;
-
-}
-
-.banner p{
-
-color:#ddd;
-
-}
-
-.banner button{
-
-margin-top:20px;
-padding:12px 30px;
-border:none;
-border-radius:12px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-
 }
 
 .baslik{
-
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:25px 18px 10px;
-
 }
 
 .baslik h2{
-
 font-size:22px;
-
 }
 
 .baslik a{
-
 color:white;
 text-decoration:none;
-
 }
 
 .urunler{
-
 display:grid;
 grid-template-columns:repeat(2,160px);
 justify-content:center;
 gap:18px;
 padding-bottom:30px;
-
 }
 
 .kart{
@@ -152,11 +116,33 @@ font-size:18px;
 font-weight:bold;
 }
 
-<b>VELRON STORE</b><br><br>
+footer{
+background:#000;
+padding:30px;
+text-align:center;
+color:#aaa;
+margin-top:30px;
+}
 
-© 2026 Tüm Hakları Saklıdır.
+</style>
 
-</footer>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">VELRON</div>
+
+<a href="#" class="icon">🛒</a>
+
+</header>
+
+<div class="kargo">
+🚚 2 TİŞÖRT ALANA KARGO BEDAVA
+</div>
+
+<div class="banner"></div>
 
 <div class="baslik">
 <h2>Yeni Koleksiyon</h2>
@@ -166,47 +152,96 @@ font-weight:bold;
 <div class="urunler">
 
 <div class="kart" onclick="location.href='ejderha.html'">
-<img src="tshirt.jpg" style="width:100%;border-radius:15px;">
-<h3>DRAGON</h3>
+<img src="tshirt.jpg">
+<h3>JAPON EJDERHASI</h3>
 <p>499 TL</p>
 </div>
 
 <div class="kart" onclick="location.href='reaper.html'">
-<img src="tişört5.jpg" style="width:100%;border-radius:15px;">
-<h3>REAPER</h3>
+<img src="tişört5.jpg">
+<h3>DARK REAPER</h3>
 <p>549 TL</p>
 </div>
 
 <div class="kart">
-<img src="tshirt2.jpg" style="width:100%;border-radius:15px;">
-<h3>RAVEN</h3>
+<img src="tshirt2.jpg">
+<h3>YAKINDA</h3>
 <p>499 TL</p>
 </div>
 
 <div class="kart">
-<img src="tshirt3.jpg" style="width:100%;border-radius:15px;">
-<h3>SAMURAI</h3>
+<img src="tshirt3.jpg">
+<h3>YAKINDA</h3>
 <p>499 TL</p>
 </div>
 
 </div>
 
 <div class="baslik">
-<h2>Neden Velron?</h2>
-</div>
+<h2>Neden
 
-<div style="padding:25px;text-align:center;line-height:35px;">
+<div style="padding:25px;text-align:center;line-height:35px;font-size:17px;">
+
 🚚 Hızlı Kargo<br>
 ⭐ Premium Kalite<br>
-🔒 Güvenli Ödeme<br>
+🔒 Güvenli Alışveriş<br>
 📦 Özenli Paketleme
+
 </div>
 
-<footer style="background:#000;padding:30px;text-align:center;">
+<footer>
+
 <h2>VELRON STORE</h2>
-<p>© 2026 Tüm Hakları Saklıdır.</p>
+
+<p style="margin-top:10px;">
+Kaliteli baskı • Güvenli alışveriş • Hızlı kargo
+</p>
+
+<p style="margin-top:20px;color:#777;">
+© 2026 VELRON STORE
+</p>
+
 </footer>
 
-</body>
-</html>
+<script>
 
+function menuAc(){
+document.getElementById("menu").style.left="0";
+document.getElementById("overlay").style.display="block";
+}
+
+function menuKapat(){
+document.getElementById("menu").style.left="-220px";
+document.getElementById("overlay").style.display="none";
+}
+
+</script>
+
+<div id="overlay" onclick="menuKapat()" style="
+display:none;
+position:fixed;
+top:0;
+left:220px;
+width:calc(100% - 220px);
+height:100%;
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(8px);
+z-index:998;
+"></div>
+
+<div id="menu" style="
+position:fixed;
+top:0;
+left:-220px;
+width:220px;
+height:100%;
+background:#1a1a1a;
+padding:20px;
+transition:.3s;
+z-index:999;
+">
+
+<h2 style="margin-bottom:25px;">VELRON STORE</h2>
+
+<p style="margin:20px 0;">
+<a href="hesabim.html" style="color:white;text-decoration:none;">👤 Hesabım
