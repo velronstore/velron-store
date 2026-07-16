@@ -374,12 +374,12 @@ alert("❤️ Ürün favorilere eklendi.");
 }
 
 function menuAc(){
-document.getElementById("menu").style.display="block";
+document.getElementById("menu").style.left="0";
 document.getElementById("overlay").style.display="block";
 }
 
 function menuKapat(){
-document.getElementById("menu").style.display="none";
+document.getElementById("menu").style.left="-260px";
 document.getElementById("overlay").style.display="none";
 }
 
@@ -400,14 +400,14 @@ z-index:998;
 "></div>
 
 <div id="menu" style="
-display:none;
 position:fixed;
 top:0;
-left:0;
+left:-260px;
 width:260px;
 height:100%;
 background:#1a1a1a;
 padding:20px;
+transition:0.3s;
 z-index:999;
 ">
 
