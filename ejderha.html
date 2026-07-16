@@ -172,7 +172,7 @@ alert("✅️ Ürün sepete eklendi.");
 
 function favoriyeEkle(){
 
-const giris=localStorage.getItem("giris");
+const giris = localStorage.getItem("giris");
 
 if(giris!="true"){
 alert("Favorilere eklemek için önce giriş yapmalısınız.");
@@ -180,18 +180,23 @@ window.location.href="giris.html";
 return;
 }
 
-let favoriler=JSON.parse(localStorage.getItem("favoriler")) || [];
+let favoriler = JSON.parse(localStorage.getItem("favoriler")) || [];
 
-favoriler.push({
+const urun = {
 urun:"Japon Ejderhası Baskılı Siyah Tişört",
 fiyat:499
-});
+};
 
-localStorage.setItem("favoriler",JSON.stringify(favoriler));
+const varMi = favoriler.some(f => f.urun === urun.urun);
+
+if(!varMi){
+favoriler.push(urun);
+localStorage.setItem("favoriler", JSON.stringify(favoriler));
+}
 
 document.getElementById("kalp").innerHTML = "❤️";
+localStorage.setItem("kalpEjderha","1");
 
-alert("❤️ Ürün favorilere eklendi.");
 }
 
 function satinal(){
@@ -214,6 +219,10 @@ return;
 sepeteEkle();
 
 window.location.href="teslimat.html";
+}
+
+if(localStorage.getItem("kalpEjderha")=="1"){
+document.getElementById("kalp").innerHTML="❤️";
 }
 
 </script>
