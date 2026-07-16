@@ -171,6 +171,29 @@ alert("❤️ Ürün favorilere eklendi.");
 
 }
 
+function satinal(){
+
+const giris = localStorage.getItem("giris");
+
+if(giris!="true"){
+alert("Sipariş verebilmek için önce giriş yapmalısınız.");
+window.location.href="giris.html";
+return;
+}
+
+const beden = document.getElementById("beden").value;
+
+if(beden==""){
+alert("Lütfen beden seçiniz.");
+return;
+}
+
+sepeteEkle();
+
+window.location.href="teslimat.html";
+
+}
+
 </script>
 
 </body>
